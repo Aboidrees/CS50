@@ -47,16 +47,16 @@ int main()
     }
 
     // average number of sentences per 100 words
-    float S =  (sentences * 100.0 / words); // 4 * 100 / 14
+    float S = (sentences * 100.0 / words);  // 4 * 100 / 14
 
     // average number of sentences per 100 words
-    float L =  (letters * 100.0 / words);
+    float L = (letters * 100.0 / words);
 
 
     float index = (0.0588 * L) - (0.296 * S) - (15.8);
 
 
-    if(index < 1)
+    if (index < 1)
     {
         printf("Before Grade 1\n");
     }
