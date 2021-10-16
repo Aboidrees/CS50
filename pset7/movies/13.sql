@@ -1,0 +1,1 @@
+select name from stars join people on stars.person_id=people.id where movie_id in (select movie_id from stars join people on stars.person_id=people.id where people.name='Kevin Bacon' and people.birth=1958) and name !='Kevin Bacon' order by name;
