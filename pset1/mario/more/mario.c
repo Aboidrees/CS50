@@ -10,6 +10,13 @@ int main(void)
     }
     while (height < 1 || height > 8);
 
+height = (input("Height: "))
+while height < 1  height > 8 or height.isnumeric():
+    height = int(input("Height: "))
+
+for i in range(height):
+    # adding the first leading space
+    print((" " * (height - i-1 )) + ("#" * (i+1)))
 
 
     for (int i = 0; i < height; i++)

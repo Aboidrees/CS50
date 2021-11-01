@@ -32,7 +32,7 @@ int main()
             words++;
         }
 
-        // inspect sentences
+            // inspect sentences
         if (s[i] == '.' || s[i] == '!' || s[i] == '?')
         {
             sentences++;
