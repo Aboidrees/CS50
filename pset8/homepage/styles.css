@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 29, 2020, 6:58:06 PM
+    Author     : ABOIDREES
+*/
+*{
+    font-family:  arial,sans-serif;
+}
+.bg {
+    background-color: #f1f1f1;
+}
+
+main{
+    height: 60vh;
+}
+
+form{
+    margin-top: 10vh
+}
+
+#searchbar, #prepended, #appended{
+    box-shadow: none;
+    border: none;
+    background-color: transparent !important;
+}
+
+#searchbar{
+    height: auto;
+}
+
+#inputgroup{
+    border-radius: 30px;
+    border: solid 1px #dfe1e5;
+    height: 50px;
+    padding: 0 7px;
+}
+
+/*#searchbar{
+    border-radius: 50px;
+    padding: 20px;
+    border-left: 0;
+    border-right: 0;
+}
+
+#searchbar:focus{
+    box-shadow: none;
+    border-color: #ced4da;
+}*/
+
+
+/*#prepended, #appended{
+    background-color: white !important;
+}
+
+#prepended{
+    border-top-left-radius: 30px !important;
+    border-bottom-left-radius: 30px;
+    border-right: 0;
+}
+#appended{
+    border-top-right-radius: 30px !important;
+    border-bottom-right-radius: 30px;
+    border-left: 0;
+
+}*/
+
+
+.btn:focus {
+    border: 1px solid #4d90fe;
+    outline: none;
+    box-shadow: none;
+}
+.btn:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1) !important;
+    background-image: -webkit-linear-gradient(top,#f8f9fa,#f8f9fa);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
+}

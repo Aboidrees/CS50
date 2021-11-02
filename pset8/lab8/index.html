@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <meta charset="UTF-8">
+        <script>
+
+            // check button selection answer
+            function checkAnswer(value, id){
+                if(value == "right"){
+                    // right answer
+                    document.getElementById("feedback").innerHTML = "<span id='right'>Correct</span>";
+                    document.querySelector("input").style.backgroundColor ="green";
+                    document.querySelector("#"+id).style.backgroundColor ="green";
+
+                }else{
+                    // wrong answer
+                    document.getElementById("feedback").innerHTML = "<span id='wrong'>Incorrect</span>";
+                    document.querySelector("#"+id).style.backgroundColor ="red";
+                }
+            }
+
+            // check input field answer
+            function checkAnswer2(){
+                let input = document.querySelector("input").value.toLowerCase();
+                console.log(input);
+                if(input == "80" || input == "80 km" || input == "80km"){
+                    // right answer
+                    document.querySelector("#feedback2").innerHTML= "Correct";
+                    document.querySelector("input").style.backgroundColor ="green";
+                }else{
+                    // wrong answer
+                    document.querySelector("#feedback2").innerHTML= "Incorrect";
+                    document.querySelector("input").style.backgroundColor ="red";
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>what is the cheetah's top speed?</h3>
+                <div id="feedback"></div>
+                <div id="answers">
+                    <button type="button" id="a" onClick="checkAnswer('right', 'a');">120 Km/s</button>
+                    <button type="button" id="b" onClick="checkAnswer('wrong', 'b');" >90 Km/s</button>
+                    <button type="button" id="c" onClick="checkAnswer('wrong', 'c');" >60 Km/s</button>
+                    <button type="button" id="d" onClick="checkAnswer('wrong', 'd');" >11 Km/s</button>
+                    <button type="button" id="e" onClick="checkAnswer('wrong', 'e');">17 Km/s</button>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>what is the lion top speed?</h3>
+                <div id="feedback2"></div>
+                <input name="response" type="text">
+                <button type="button" onclick="checkAnswer2();">Check Answer</button>
+            </div>
+
+        </div>
+    </body>
+</html>
