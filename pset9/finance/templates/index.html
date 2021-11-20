@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <table class="table text-left"  >
+        <thead>
+            <tr>
+                <th>Sumbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for purchase in purchases %}
+            <tr>
+                <td>{{ purchase.symbol }}</td>
+                <td>{{ purchase.name }}</td>
+                <td>{{ purchase.shares }}</td>
+                <td>${{ purchase.price }}</td>
+                <td>${{ (purchase.price * purchase.shares)|round(2) }}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+                <td>CACH</td>
+                <td colspan="3"></td>
+                <td>$10000.0</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
