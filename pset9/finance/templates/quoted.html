@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Register
+    Quote
 {% endblock %}
 
 {% block main %}
     <div>
-        A share of {{ data['name'] }} ({{ data['symbol'] }}) costs {{ data['price'] }}
+        A share of {{ data['name'] }} ({{ data['symbol'] }}) costs {{ data['price']|usd }}
     </div>
 {% endblock %}

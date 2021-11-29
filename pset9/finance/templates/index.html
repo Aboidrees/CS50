@@ -5,32 +5,42 @@
 {% endblock %}
 
 {% block main %}
-    <table class="table text-left"  >
+    <table class="table text-left">
         <thead>
-            <tr>
-                <th>Sumbol</th>
-                <th>Name</th>
-                <th>Shares</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
         </thead>
         <tbody>
-            {% for purchase in purchases %}
+        {% set total = namespace(value=0) %}
+        {% set subtotal = 0.0 %}
+        {% for operation in operations %}
             <tr>
-                <td>{{ purchase.symbol }}</td>
-                <td>{{ purchase.name }}</td>
-                <td>{{ purchase.shares }}</td>
-                <td>${{ purchase.price }}</td>
-                <td>${{ (purchase.price * purchase.shares)|round(2) }}</td>
+                <td>{{ operation.symbol }}</td>
+                <td>{{ operation.name }}</td>
+                <td>{{ operation.shares }}</td>
+                <td>{{ operation.price | usd }}</td>
+                <td>
+                    {% set subtotal = (operation.price * operation.shares)|round(2) %}
+                    {% set total.value = total.value + subtotal %}
+                    {{ subtotal |usd}}
+                </td>
             </tr>
 
-            {% endfor %}
-            <tr>
-                <td>CACH</td>
-                <td colspan="3"></td>
-                <td>$10000.0</td>
-            </tr>
+        {% endfor %}
+        <tr>
+            <td>CASH</td>
+            <td colspan="3"></td>
+            <td>{{ cash |usd}}</td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+            <td><strong>{{ (cash + total.value)|usd }}</strong></td>
+        </tr>
         </tbody>
     </table>
 {% endblock %}
