@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  {{ 'New Task' if not task else "Edit Task" }}
+{% endblock %}
+
+{% block main %}
+  <div class="p-5 border rounded bg-white">
+
+    <h1>{{ 'New Task' if not task else "Edit Task " }}</h1>
+    <hr>
+    <form action="{{ url_for('index') }}" method="post">
+      {% if task %}
+        <input type="hidden" name="id" value="{{ task['id'] if task else '' }}"/>
+      {% endif %}
+      <div class="row">
+        <div class="col">
+          <label for="member">Choose the member</label>
+          <select name="member_id" id="member" class="form-control">
+            <option {{ '' if task else 'selected' }}>----</option>
+            {% for member in members %}
+              <option value="{{ member['id'] }}">{{ member['name'] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label for="task">Task details</label>
+          <textarea name="task" class="editor" id="task">{{ task['task']  if task else '' }}</textarea>
+        </div>
+        <div class="col">
+          <label for="outcome">Outcome details</label>
+          <textarea name="outcome" class="editor" id="outcome">{{ task['outcome'] if task else '' }}</textarea>
+        </div>
+      </div>
+      <hr>
+      <button name="action" class="btn btn-primary bg-qatar" value="save" type="submit">
+        Save &numsp; <img src="/static/images/save.svg" width="24" class="text-white" alt="Save new task">
+      </button>
+
+      <a onclick="return confirm('Are you sure, you want to cancel?');"
+         class="btn btn-primary text-white" href="{{ url_for('index') }}">Back&numsp;
+        <img src="/static/images/cross.svg" width="16" class="text-white" alt="">
+      </a>
+    </form>
+  </div>
+{% endblock %}

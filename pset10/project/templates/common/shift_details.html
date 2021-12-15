@@ -1,0 +1,25 @@
+<div class="py-3 px-5 border rounded mb-3 bg-white">
+  <div class="row">
+    <div class="col">
+      SHIFT
+      <h2>
+        <img src="/static/images/shift-qa.svg" width="36" alt="Shift Name">&nbsp;
+        {{ session.shift['name'] }}
+      </h2>
+    </div>
+    <div class="col">
+      START
+      <h2>
+        <img src="/static/images/time-check-qa.svg" width="36" alt="Start Time">&nbsp;
+        {{ session.shift['start_time'] }}
+      </h2>
+    </div>
+    <div class="col">
+      END
+      <h2>
+        <img src="/static/images/time-check-qa.svg" width="36" alt="End Time">&nbsp;
+        {{ session.shift['end_time'] }}
+      </h2>
+    </div>
+  </div>
+</div>

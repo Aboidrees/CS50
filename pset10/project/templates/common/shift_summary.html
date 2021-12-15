@@ -1,0 +1,15 @@
+<div class="py-3 px-5 border rounded mb-3 bg-white">
+  <div class="row">
+    <div class="col">
+      <details>
+        <summary><h3 class="text-qatar"><img src="/static/images/summary-qa.svg" width="32" alt="Shift Summary">
+          &nbsp;&nbsp;Last Shift Summary
+        </h3>
+        </summary>
+        <div class="bg-light p-3 border rounded bg-white">
+          {{ summary['summary'] | safe if summary != '' else "No Sammaries recoreded" }}
+        </div>
+      </details>
+    </div>
+  </div>
+</div>

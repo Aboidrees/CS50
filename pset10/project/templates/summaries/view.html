@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Summaries
+{% endblock %}
+
+{% block main %}
+  <div class="p-5 border rounded bg-white">
+
+    {% if session.permission in ['Super','Admin'] %}
+      <form action="" method="post">
+        <button name="action" value="add" class="btn btn-primary">
+          Add Summary &numsp;
+          <img src="/static/images/plus.svg" width="20" class="text-white" alt="Add new summary">
+        </button>
+      </form>
+      <hr>
+
+    {% endif %}
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr class="text-center text-white bg-qatar">
+        <th>#</th>
+        <th>Summaries</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for summary in summaries %}
+        <tr class="text-center">
+          <td class="text-center align-middle h5">{{ summary['id'] }}</td>
+          <td class="text-left align-middle">
+            <a class="h4 text-qatar" href="{{ url_for('summaries', id=summary['id']) }}">{{ summary['name'] }}</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="d-inline-block">Start: {{ summary['start_time'] }}</span>
+            &nbsp;&nbsp;
+            <span class="d-inline-block">End: {{ summary['end_time'] }}</span>
+            <br>
+            <img src="/static/images/time-check-qa.svg" alt="Created at" width="22">
+            <span title="Created">{{ summary['created'] }}</span>
+            &nbsp;&nbsp;
+            <img src="/static/images/time-check-qa.svg" alt="Created at" width="22">
+            <span title="Modified">{{ summary['modified'] }}</span>
+          </td>
+          <td class="text-right">
+            {% if session.permission in ['Super'] %}
+              <form class="d-inline-block" action="" method="post">
+                <input type="hidden" name="id" value="{{ summary['id'] }}">
+                <button name="action" value="edit" class="btn btn-primary btn-sm">
+                  <img src="/static/images/edit.svg" width="24" alt="">
+                </button>
+              </form>
+            {% endif %}
+
+            <form class="d-inline-block" action="" method="post">
+              <input type="hidden" name="id" value="{{ summary['id'] }}">
+              <button name="action" value="delete" class="btn btn-primary btn-sm">
+                <img src="/static/images/trash.svg" width="24" alt="">
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% if request.args.get('id') and (request.args.get('id')|int) == summary['id'] %}
+          <tr>
+            <td colspan="5">
+              <div class='bg-white border p-3 rounded'>
+                {{ (summary['summary'] if summary['summary'] else 'No Description!') | safe }}
+                <div class="text-center">
+                  <a onclick="return confirm('Are you sure, you want to cancel?');"
+                     class="btn btn-primary text-white" href="{{ url_for('summaries') }}">Back&numsp;
+                    <img src="/static/images/cross.svg" width="16" class="text-white" alt="">
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% endif %}
+
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

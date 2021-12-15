@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Log In
+{% endblock %}
+
+{% block main %}
+  <form action="" method="post">
+    {% include 'common/auth_logo.html' %}
+    <div class="bg-white p-5 w-50 m-auto">
+      <div class="form-label-group">
+        <input name="email" type="email" class="form-control" placeholder="Email address" required/>
+      </div>
+
+      <div class="form-label-group my-4">
+        <input name="password" type="text" class="form-control" placeholder="Password" required/>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-5">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </div>
+        <div class="col-2"><p class="text-center text-qatar py-3">-- OR --</p></div>
+        <div class="col-5">
+          <a class="btn btn-lg btn-primary btn-block" href="{{ url_for('register') }}">Register</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

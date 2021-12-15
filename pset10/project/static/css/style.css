@@ -1,0 +1,116 @@
+:root {
+    --input-padding-x: .75rem;
+    --input-padding-y: .75rem;
+}
+
+* {
+    font-family: 'Cairo', sans-serif;
+    /*font-size: 1.2rem;*/
+}
+
+a {
+    color: #680233;
+}
+
+a:hover {
+    color: #530229;
+
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#notifications {
+    position: absolute;
+    left: 6rem;
+    top: 7.2rem;
+}
+
+body {
+    padding-top: 100px;
+    background-color: #f5f5f5;
+}
+
+li.nav-item {
+    padding-right: 1rem;
+}
+
+li.nav-item > a {
+    font-size: 1.3rem;
+}
+
+.form-sign-in {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.bg-qatar {
+    background-color: #680233;
+}
+
+
+.text-qatar {
+    color: #680233;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #680233;
+    border-color: #680233;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #530229;
+    border-color: #530229;
+}
+
+.btn-primary.focus, .btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(104, 2, 51, 0.5)
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background-color: #530229;
+    border-color: #530229;
+}
+
+.btn-none {
+    background: none;
+    color: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.form-control:focus {
+    border-color: #8d4b6a;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(104, 2, 51, 0.25)
+}
+
+.status {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+summary::marker {
+    display: none;
+    content: "";
+}

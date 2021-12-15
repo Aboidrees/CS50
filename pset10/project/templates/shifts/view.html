@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Shifts
+{% endblock %}
+
+{% block main %}
+  <div class="p-5 border rounded bg-white">
+
+    {% if session.permission in ['Super','Admin'] %}
+      <form action="" method="post">
+        <button name="action" value="add" class="btn btn-primary">
+          New Shift &numsp; <img src="/static/images/plus.svg" width="20" class="text-white" alt="add new member">
+        </button>
+      </form>
+      <hr>
+
+    {% endif %}
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr class="text-center text-white bg-qatar">
+        <th>#</th>
+        <th>Shift</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+
+      {% for shift in shifts %}
+        <tr class="text-center">
+          <td class="h5">{{ shift['id'] }}</td>
+          <td>{{ shift['name'] }}</td>
+          <td>{{ shift['start_time'] }}</td>
+          <td>{{ shift['end_time'] }}</td>
+          <td class="text-right">
+            {% if session.permission =='Super' %}
+              <form class="d-inline-block" action="" method="post">
+                <input type="hidden" name="id" value="{{ shift['id'] }}">
+                <button name="action" value="edit" class="btn btn-primary btn-sm">
+                  <img src="/static/images/edit.svg" width="24" alt="">
+                </button>
+              </form>
+            {% endif %}
+
+            {% if session.permission == 'Super' %}
+              <form class="d-inline-block" action="" method="post">
+                <input type="hidden" name="id" value="{{ shift['id'] }}">
+                <button name="action" value="delete" class="btn btn-primary btn-sm">
+                  <img src="/static/images/trash.svg" width="24" alt="">
+                </button>
+              </form>
+            {% endif %}
+
+
+          </td>
+
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block main %}
+  <form class="form-signin" method="post">
+    {% include 'common/auth_logo.html' %}
+    <div class="bg-white p-5 w-50 m-auto">
+
+      <div class="row mb-4">
+        <div class="col">
+          <input name="name" type="text" class="form-control" placeholder="Full Name" required autofocus/>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <select name="role" required class="form-control">
+            <option disabled selected>Choose a role</option>
+            <option value="Analyst">Analyst</option>
+            <option value="Officer">Officer</option>
+            <option value="Support">Support</option>
+            <option value="Advisor">Advisor</option>
+          </select>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <input name="email" type="email" class="form-control" placeholder="Email address" required/>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col">
+          <input name="password" type="password" class="form-control" placeholder="Password" required/>
+        </div>
+        <div class="col">
+          <input name="confirmation" type="password" class="form-control" placeholder="Password Confirmation" required/>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-5">
+          <button class="btn btn-lg btn-primary btn-block bg-qatar" type="submit">Register</button>
+        </div>
+        <div class="col-2"><p class="text-center text-qatar py-3">-- OR --</p></div>
+        <div class="col-5">
+          <a class="btn btn-lg btn-primary btn-block" href="{{ url_for('login') }}">Login</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

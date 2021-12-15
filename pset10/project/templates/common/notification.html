@@ -1,0 +1,8 @@
+<div class="container">
+  {% for msg in messages %}
+    <div style="opacity:0.7" class="alert alert-{{ category }} border text-center" role="alert">
+      <a class="close" href="#">×</a>
+      <p>{{ msg }}</p>
+    </div>
+  {% endfor %}
+</div>
