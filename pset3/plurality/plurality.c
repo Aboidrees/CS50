@@ -12,7 +12,7 @@ typedef struct
     int votes;
 }
 candidate;
-
+void bubble_sort();
 // Array of candidates
 candidate candidates[MAX];
 
@@ -66,14 +66,48 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    // TODO
+    // Linear Search for the candidate
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(candidates[i].name, name) == 0)
+        {
+            candidates[i].votes += 1;
+            return true;
+        }
+    }
     return false;
 }
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    // TODO
-    return;
-}
+    candidate tmp;
 
+    for (int i = 0 ; i < candidate_count - 1; i++)
+    {
+        for (int j = 0 ; j < candidate_count - i - 1; j++)
+        {
+            if (candidates[j].votes < candidates[j + 1].votes)
+            {
+                tmp               = candidates[j];
+                candidates[j]   = candidates[j + 1];
+                candidates[j + 1] = tmp;
+            }
+        }
+    }
+
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[0].votes == candidates[i].votes)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+        else
+        {
+            break;
+        }
+
+    }
+
+}
